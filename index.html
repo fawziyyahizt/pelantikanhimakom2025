@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Karya - Fawziyyah Izzati Azima</title>
+    <style>
+        /* ==================== CSS CODE ==================== */
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-color: #ffffff;
+            --text-muted-color: rgba(255, 255, 255, 0.8);
+            --orange-theme: #ff8c00;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #1a1100;
+            color: var(--text-color);
+        }
+
+        .background-collage {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2; overflow: hidden; transform: scale(1.1);
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .background-collage::after {
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(26, 17, 0, 0.75);
+            z-index: 1;
+        }
+
+        .background-collage img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: blur(8px) brightness(0.5);
+        }
+
+        #particles-js {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: -1;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px);
+            padding: 20px 40px; display: flex; justify-content: space-between;
+            align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative; z-index: 2;
+        }
+
+        .logo-text { font-size: 24px; font-weight: 600; color: white; text-decoration: none; }
+        .back-link { color: var(--text-muted-color); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+        .back-link:hover { color: var(--orange-theme); }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .gallery-container h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffd700 0%, var(--orange-theme) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gallery-container p {
+            font-size: 18px;
+            color: var(--text-muted-color);
+            margin-bottom: 50px;
+        }
+
+        /* ==== GAYA BARU: MASONRY LAYOUT ==== */
+        .gallery-grid {
+            column-count: 3; /* 3 kolom di desktop */
+            column-gap: 20px;
+        }
+
+        .gallery-item {
+            display: inline-block; /* Agar tidak terpotong antar kolom */
+            width: 100%;
+            margin-bottom: 20px; /* Jarak vertikal */
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            background: #222;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto; /* Kunci: Ukuran foto sesuai aslinya */
+            display: block;
+        }
+        /* ================================ */
+        
+        .lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9); z-index: 1000;
+            display: none; justify-content: center; align-items: center;
+            padding: 20px;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-content { max-width: 90vw; max-height: 90vh; }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 30px;
+            font-size: 40px; color: white; cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .lightbox-close:hover { transform: scale(1.2); }
+        
+        .footer {
+            text-align: center; padding: 20px; color: var(--text-muted-color); font-size: 14px;
+            position: relative; z-index: 1;
+        }
+        
+        /* Penyesuaian responsive untuk Masonry */
+        @media (max-width: 992px) {
+            .gallery-grid { column-count: 2; } /* 2 kolom di tablet */
+        }
+        @media (max-width: 768px) {
+            .gallery-grid { column-count: 1; } /* 1 kolom di HP */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-collage">
+        <div class="collage-grid">
+            <img src="backdropp (2).png" alt="Background Artwork">
+            <img src="BANNER SELAMAT DATANG.png" alt="Background Artwork">
+            <img src="CUE CARD HIMAKOM 2025.png" alt="Background Artwork">
+            <img src="FLAYER HIMAKOM 2025.png" alt="Background Artwork">
+        </div>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <header class="header">
+        <a href="portfolio.html" class="logo-text">Fawziyyah Izzati Azima</a>
+    </header>
+
+    <main class="gallery-container">
+        <h1>Pelantikan Himakom Kabinet Arsatala</h1>
+        <p>Pelantikan Himpunan Mahasiswa Ilmu Komunikasi Kabinet Arsatala Tahun 2025/2026</p>
+        <p><i><b>Tekan foto untuk melihat dengan versi full</i></p>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="BANNER SELAMAT DATANG.png" alt="Backdrop"></div>
+            <div class="gallery-item"><img src="Nametag Inti (8.5 x 11 cm).png" alt="Banner Selamat Datang"></div>
+            <div class="gallery-item"><img src="CUE CARD HIMAKOM 2025.png" alt="Cue Card"></div>
+            <div class="gallery-item"><img src="FLAYER HIMAKOM 2025.png" alt="Flayer"></div>
+                        <div class="gallery-item"><img src="backdropp (2).png" alt="Sertifikat"></div>
+                                    <div class="gallery-item"><img src="PHOTOBOOTH HIMAKOM 2025.png" alt="Sertifikat"></div>
+            <div class="gallery-item"><img src="SERTIFIKAT PANPEL.png" alt="Sertifikat"></div>
+        </div>
+    </main>
+    
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img src="" alt="Tampilan Gambar" class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <footer class="footer">
+        © 2025 Portfolio Fawziyyah Izzati Azima. All rights reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": { "number": { "value": 60, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true }, "line_linked": { "enable": false }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } }, "retina_detect": true
+        });
+
+        // ==== JAVASCRIPT UNTUK LIGHTBOX ====
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.querySelector('img').src;
+                    lightboxImg.src = imgSrc;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                setTimeout(() => { lightboxImg.src = ''; }, 300);
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Menutup dengan tombol Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape") {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
